@@ -1,0 +1,33 @@
+#######################################
+# MariusQL generated antlr files
+#######################################
+
+/MariusQLBaseLexer.java
+/MariusQLBaseParser.java
+/MariusQLSQLBaseWalker.java
+/MariusQLSQLTokenTypes.java
+/MariusQLTokenTypes.java
+
+/MariusQLBaseLexer.smap
+/MariusQLBaseParser.smap
+/MariusQLSQLBaseWalker.smap
+
+/MariusQLSQLTokenTypes.txt
+/MariusQLTokenTypes.txt
+
+#######################################
+# SPARQL generated antlr files
+#######################################
+
+/SPARQLBaseLexer.java
+/SPARQLBaseParser.java
+/SPARQLMariusQLBaseWalker.java
+/SPARQLMariusQLBaseWalkerTokenTypes.java
+/SPARQLTokenTypes.java
+
+/SPARQLBaseLexer.smap
+/SPARQLBaseParser.smap
+/SPARQLMariusQLBaseWalker.smap
+
+/SPARQLMariusQLBaseWalkerTokenTypes.txt
+/SPARQLTokenTypes.txt

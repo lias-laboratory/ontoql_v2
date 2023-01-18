@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="antlrGenerate" default="regenAntlrProject" basedir=".">
+	<!-- ############################# VARIABLES ##############################-->	
+	<property name="src.dir" value="src" />
+	<property name="grammar.dir" value="${src.dir}/main/antlr" />
+	<property name="lib.dir" value="lib" />
+	<property name="parser.path" value="${src.dir}/main/java/fr/ensma/lias/mariusql/engine/antlr" />
+    <property name="parser.hsqldb.path" value="${src.dir}/main/java/fr/ensma/lias/mariusql/driver/hsqldb/antlr" />
+    <property name="parser.postgresql.path" value="${src.dir}/main/java/fr/ensma/lias/mariusql/driver/postgresql/antlr" />
+	<property name="parser.oracle.path" value="${src.dir}/main/java/fr/ensma/lias/mariusql/driver/oracle/antlr" />
+	
+	<!-- ############################# Tasks ##############################-->
+	<taskdef name="antlrtask" classname="org.apache.tools.ant.taskdefs.optional.ANTLR">
+		<classpath>
+			<pathelement path="${compile_classpath}"/> 
+		</classpath>
+	</taskdef>
+
+	<!-- ############################ Targets #############################-->
+	<target name="antlrProject">
+		<!-- The MariusQL grammar -->
+		<antlrtask target="${grammar.dir}/MariusQL-syntaxic.g" outputdirectory="${parser.path}" />
+		<!-- The MariusQL tree transform grammar -->
+        <antlrtask target="${grammar.dir}/MariusQL-semantic.g" outputdirectory="${parser.path}" />
+        <!-- Postgres SQL generation -->
+        <antlrtask target="${grammar.dir}/MariusQL-postgresql-generation.g" outputdirectory="${parser.postgresql.path}" dir="${parser.path}" />
+		<!-- HsqlDB SQL generation -->
+		<antlrtask target="${grammar.dir}/MariusQL-hsqldb-generation.g" outputdirectory="${parser.hsqldb.path}" dir="${parser.path}" /> 
+		<!-- Oracle SQL generation -->
+		<antlrtask target="${grammar.dir}/MariusQL-oracle-generation.g" outputdirectory="${parser.oracle.path}" dir="${parser.path}" />
+		<!-- The SPARQL grammar -->
+		<antlrtask target="${grammar.dir}/SPARQL-syntaxic.g" outputdirectory="${parser.path}" />
+		<!-- The SPARQL generation -->
+		<antlrtask target="${grammar.dir}/SPARQL-generation.g" outputdirectory="${parser.path}" />
+	</target>
+	
+	<target name="regenAntlrProject" depends="deleteAntlrProject, antlrProject" />
+		
+	<target name="deleteAntlrProject">
+		<delete>
+			<fileset dir="${parser.path}" />
+			<fileset dir="${parser.hsqldb.path}" />
+			<fileset dir="${parser.postgresql.path}" />
+			<fileset dir="${parser.oracle.path}" />
+		</delete>
+	</target>
+</project>
