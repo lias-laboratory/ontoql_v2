@@ -201,7 +201,7 @@ This kind of queries is particularly useful in a system where instances are orig
 
 ## Usage
 
-We suppose that OntoDBSchema V1 is correctly installed. If not, please refer to this [page](https://github.com/lias-laboratory/ontodbschema_v1).
+We suppose that OntoDBSchema V2 is correctly installed. If not, please refer to this [page](https://github.com/lias-laboratory/ontodbschema_v2).
 
 * Compile the project and deploy the artifcats to the local Maven repository.
 
@@ -254,7 +254,7 @@ public class OntoQLSampleTest {
 
 ## Software licence agreement
 
-Details the license agreement of OntoQL V1: [LICENCE](LICENCE)
+Details the license agreement of OntoQL V2: [LICENCE](LICENCE)
 
 ## Code analysis
 
